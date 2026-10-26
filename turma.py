@@ -6,10 +6,13 @@ class Turma:
 
   def cadastrarAlunos(self, alunos):    
     for i in alunos:
+      if i.nota < 0 or i.nota > 10:
+        print('Nota inválida para o aluno:', i.mostrarAluno());
+        continue;
       self.turma.append(i);
       if((self.menorNota == None) or (self.menorNota.nota > i.nota)):
         self.menorNota = i;
-      elif((self.maiorNota == None) or (self.menorNota.nota < i.nota)):
+      if((self.maiorNota == None) or (self.maiorNota.nota < i.nota)):
         self.maiorNota = i;                 
 
   def mostrarAlunos(self):  
